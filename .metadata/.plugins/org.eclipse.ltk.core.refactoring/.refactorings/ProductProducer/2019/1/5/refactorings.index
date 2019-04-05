@@ -1,0 +1,17 @@
+1548671982395	Rename package 'com.quickr'
+1548671993565	Rename package 'com.quickr.model'
+1548672014735	Rename package 'com.quickr.service'
+1548672023670	Rename package 'com.quickr.controller'
+1548672038184	Rename type 'AddProductServiceApplication'
+1548672120922	Rename type 'AddProduct'
+1548672703083	Rename type 'AddProductController'
+1548672715002	Rename type 'AddProductService'
+1548674416493	Delete element
+1548674675300	Rename type 'ProductServiceApplication'
+1548762832958	Copy package
+1548763822083	Copy compilation unit
+1548825253096	Delete element
+1548841650954	Delete element
+1548842222468	Rename package 'com.quickr.productconsumer.swagger'
+1548842284898	Copy package
+1548843553564	Delete element

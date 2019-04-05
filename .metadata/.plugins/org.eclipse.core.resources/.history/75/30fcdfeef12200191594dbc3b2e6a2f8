@@ -1,0 +1,26 @@
+package com.quickr.product.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.quickr.product.model.Product;
+import com.quickr.product.repository.ProductRepository;
+
+@Service
+public class ProductService {
+	@Autowired
+	private ProductRepository productRepository;
+	public void addProduct(@RequestBody Product product) {
+		productRepository.save(product);
+	}
+	public Product getProductById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+/*	public AddProduct createUser(AddProduct addProduct) {
+		
+		return addProduct;
+	}*/
+}

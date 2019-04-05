@@ -1,0 +1,14 @@
+package com.quickr.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AddProductController {
+	
+	@GetMapping
+	public String addProduct() {
+		return "adding product..";
+	}
+}

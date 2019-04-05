@@ -1,0 +1,5 @@
+package com.quickr.product.swagger;
+
+public class SwaggerConfig {
+
+}

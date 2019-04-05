@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.quickr.model.Product&apos; to &apos;AddProduct&apos;&#x0D;&#x0A;- Original project: &apos;add-product-service&apos;&#x0D;&#x0A;- Original element: &apos;com.quickr.model.Product&apos;&#x0D;&#x0A;- Renamed element: &apos;com.quickr.model.AddProduct&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Product&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.quickr.model{Product.java[Product" matchStrategy="1" name="AddProduct" qualified="false" references="true" similarDeclarations="false" stamp="1548320321652" textual="false" version="1.0"/>
+</session>

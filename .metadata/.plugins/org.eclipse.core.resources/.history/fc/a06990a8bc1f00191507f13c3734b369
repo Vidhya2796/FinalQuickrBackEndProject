@@ -1,0 +1,13 @@
+package com.quickr.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Service
+public class AddProductService {
+
+	
+	public String addProduct() {
+		return "adding product in service..";
+	}
+}

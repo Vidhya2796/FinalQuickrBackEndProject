@@ -1,0 +1,11 @@
+package com.quickr.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AddProductController {
+
+	public string addProduct() {
+		return "adding product..";
+	}
+}

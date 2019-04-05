@@ -1,0 +1,16 @@
+package com.quickr.product.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductService {
+
+	public void addProduct() {
+		
+	}
+
+/*	public AddProduct createUser(AddProduct addProduct) {
+		
+		return addProduct;
+	}*/
+}

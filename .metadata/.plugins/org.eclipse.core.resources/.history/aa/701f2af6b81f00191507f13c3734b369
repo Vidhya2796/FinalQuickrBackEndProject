@@ -1,0 +1,31 @@
+package com.quickr.model;
+
+import java.time.LocalDate;
+
+public class AddProduct {
+
+	/*productBrand
+	 *productModel
+	 *yearOfRegistration
+	 *kmsDriven
+	 *location 
+	 * expectedSellingPrice
+	 * sellerName
+	 * sellerPhoneNumber
+	 * sellerEmail
+	 * lastUpdatedDate
+	 * */
+	
+	private String productBrand;
+	private String productModel;
+	private LocalDate yearOfRegistration;
+	private long kmsDriven;
+	private String location;
+	private double expectedSellingPrice;
+	private String sellerName;
+	private long sellerPhoneNumber;
+	private String sellerEmail;
+	
+	
+	
+}

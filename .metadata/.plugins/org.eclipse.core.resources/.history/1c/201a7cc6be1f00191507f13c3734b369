@@ -1,0 +1,14 @@
+package com.quickr.productapp.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class ProductAppController {
+
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+		
+	}
+	
+}

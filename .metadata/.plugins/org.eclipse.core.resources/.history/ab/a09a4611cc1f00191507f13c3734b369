@@ -1,0 +1,27 @@
+package com.quickr.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.quickr.service.AddProductService;
+
+@RestController
+public class AddProductController {
+	
+	@Autowired
+	private AddProductService service;
+	
+	@GetMapping
+	public String addProduct() {
+		return service.addProduct();
+	}
+	
+	/*@PostMapping("/addproduct")
+	public AddProduct createProduct(@RequestBody AddProduct addProduct) {
+		return service.createUser(addProduct);
+	
+			
+	}*/
+}

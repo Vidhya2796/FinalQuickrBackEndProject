@@ -1,0 +1,26 @@
+package com.quickr.model;
+
+public class AddProduct {
+
+}
+
+@Document(collection = "userAccount")
+public class UserRegistrationAccount {
+	
+	/*{
+		"userName":"Priya",
+		"emailId":"cvs@gmail.com",
+		"phoneNumber":"123456",
+		"password":"cvs"
+	}*/
+	
+	
+	
+
+	private String name;
+	@Id
+	private String email;
+	private long phonenumber;
+	private String password;
+}
+	

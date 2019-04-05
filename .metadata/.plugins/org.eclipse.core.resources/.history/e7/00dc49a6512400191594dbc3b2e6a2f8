@@ -1,0 +1,5 @@
+package com.quickr.productconsumer.model;
+
+public class Product {
+
+}

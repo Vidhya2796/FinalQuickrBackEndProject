@@ -1,0 +1,5 @@
+package com.quickr.product.repository;
+
+public class ProductRepository extends mongoreposi {
+
+}

@@ -1,0 +1,18 @@
+package com.quickr.model;
+
+
+
+public class AddProduct {
+
+	/*productBrand
+	 *productModel
+	 *yearOfRegistration
+	 *kmsDriven
+	 *city 
+	 * expectedSellingPrice
+	 * sellerName
+	 * sellerPhoneNumber
+	 * sellerEmail
+	 * 
+	 * */
+}

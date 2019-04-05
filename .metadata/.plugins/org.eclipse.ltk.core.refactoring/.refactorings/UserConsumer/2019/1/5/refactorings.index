@@ -1,0 +1,13 @@
+1548731655415	Rename package 'com.quickr.login'
+1548731668274	Rename package 'com.quickr.login.controller'
+1548731678087	Rename package 'com.quickr.login.model'
+1548731689482	Rename type 'LoginConsumerApplication'
+1548762848181	Rename package 'com.quickr.product.swagger'
+1548823914180	Delete element
+1548825457988	Rename type 'QuickrConsumerApplication'
+1548825469748	Rename package 'com.quickr.consumer'
+1548825482464	Rename package 'com.quickr.consumer.model'
+1548825488722	Rename package 'com.quickr.consumer.controller'
+1548826886876	Delete element
+1548840178973	Delete element
+1548842121461	Rename package 'com.quickr.productconsumer.swagger'

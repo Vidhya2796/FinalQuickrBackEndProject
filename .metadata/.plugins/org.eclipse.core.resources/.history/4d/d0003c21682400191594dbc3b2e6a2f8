@@ -1,0 +1,152 @@
+package com.quickr.userconsumer.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+import com.quickr.userconsumer.model.UserLoginAccount;
+import com.quickr.userconsumer.model.UserRegistrationAccount;
+
+//@CrossOrigin(origins="http://localhost:4007")
+@RestController
+public class UserConsumerController {
+	@Autowired
+	private EurekaClient client;
+		
+	@Autowired
+	private RestTemplateBuilder restTemplateBuilder;
+	
+	
+	
+	//VALIDATING USER DETAILS BY EMAILID AND PASSWORD USING POJO OBJECT
+	
+	
+
+	
+	
+	
+	@PostMapping("/quickr/validate")
+	public boolean validateUser(@RequestBody UserLoginAccount userLoginAccount) {
+		System.out.println(userLoginAccount);
+		RestTemplate restTemplate = restTemplateBuilder.build();
+		
+		String baseUrl = getUserBaseUrl();
+		ResponseEntity<List<UserRegistrationAccount>> response =
+				restTemplate.exchange(baseUrl+"/getallusers", HttpMethod.GET, null,new ParameterizedTypeReference<List<UserRegistrationAccount>>() {});
+System.out.println(response.getBody());
+		List<UserRegistrationAccount> users=response.getBody();
+		for (UserRegistrationAccount user : users) {
+			if(user.getEmail().equals(userLoginAccount.getEmail()) && user.getPassword().equals(userLoginAccount.getPassword())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	@PostMapping("/quickr/register")
+	public UserRegistrationAccount addUser(@RequestBody UserRegistrationAccount account) {
+		System.out.println(account);
+		 HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      HttpEntity<UserRegistrationAccount> entity = new HttpEntity<UserRegistrationAccount>(account,headers);
+	      RestTemplate restTemplate = restTemplateBuilder.build();
+			String baseUrl = getUserBaseUrl();
+	       restTemplate.exchange(
+	    		  baseUrl +"/register", HttpMethod.POST, entity, String.class).getBody();	
+	       return account;
+	}
+
+	
+	
+	
+	@GetMapping("/show")
+	public String show() {
+		
+		RestTemplate restTemplate = restTemplateBuilder.build();
+		String baseUrl = getUserBaseUrl();
+		System.out.println(baseUrl);
+		ResponseEntity<String> response =
+		restTemplate.exchange(baseUrl+"/show", HttpMethod.GET, null,String.class);
+		System.out.println(response.getBody());//user producer is working fine	
+		return response.getBody().toString();
+	}
+	
+
+	@GetMapping("/sample")
+	public String sample() {
+		return "user consumer is working fine";
+	}
+	
+	
+	
+	//Getting url from user producer
+	private String getUserBaseUrl() {
+	
+		InstanceInfo instanceInfo = client.getNextServerFromEureka("userproducer", false);
+		String baseUrl = instanceInfo.getHomePageUrl();
+		
+		return baseUrl;
+	} 
+ 
+	
+	
+}
+
+//GETTING ALL USER DETAILS 
+
+	/*@RequestMapping("/getallusers")
+	public List<UserRegistrationAccount> callService() {
+		RestTemplate restTemplate = restTemplateBuilder.build();
+		InstanceInfo instanceInfo = client.getNextServerFromEureka("producer", false);
+		String baseUrl = instanceInfo.getHomePageUrl();
+		System.out.println(baseUrl);
+		ResponseEntity<List<UserRegistrationAccount>> response =
+				restTemplate.exchange(baseUrl+"/users", HttpMethod.GET, null,new ParameterizedTypeReference<List<UserRegistrationAccount>>() {});
+		return response.getBody();
+	}*/
+	
+	
+	//VALIDATING USER DETAILS BY EMAILID AND PASSWORD USING PATHVARIABLE
+	
+	/*@RequestMapping("/validate/{email}/{password}")
+	public boolean callService(@PathVariable String email,@PathVariable String password) {
+		RestTemplate restTemplate = restTemplateBuilder.build();
+		InstanceInfo instanceInfo = client.getNextServerFromEureka("producer", false);
+		String baseUrl = instanceInfo.getHomePageUrl();
+		System.out.println(baseUrl);
+		ResponseEntity<List<UserRegistrationAccount>> response =
+				restTemplate.exchange(baseUrl+"/users", HttpMethod.GET, null,new ParameterizedTypeReference<List<UserRegistrationAccount>>() {});
+System.out.println(response.getBody());
+		List<UserRegistrationAccount> users=response.getBody();
+		for (UserRegistrationAccount user : users) {
+			if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
+				return true;
+			}
+		}
+		return false;
+	}*/
+
+	/*private static HttpEntity<?> getHeaders() throws IOException {
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+		return new HttpEntity<>(headers);
+	}
+	*/
+
+
